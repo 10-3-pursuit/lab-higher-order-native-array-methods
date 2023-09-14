@@ -13,7 +13,20 @@ const exampleSongData = require("../data/songs");
  * @param {Object[]} songs - An array of songs. See the song data for more.
  * @returns {Object[]}
  */
-function sortByRuntimeAscending(songs) {}
+function sortByRuntimeAscending(songs) {
+  const shortestToLongest = songs.sort((a, b) => {
+    if(a.runtimeInSeconds < b.runtimeInSeconds){
+      return -1;
+    }
+    else if(a.runtimeInSeconds > b.runtimeInSeconds){
+      return 1;
+    }
+    else{
+      return 0;
+    }
+  });
+  return shortestToLongest;
+}
 
 /**
  * Reorders the array so that the song objects are organized by their artist name. The artist that comes last in the alphabet should come first.
@@ -23,7 +36,22 @@ function sortByRuntimeAscending(songs) {}
  * @param {Object[]} songs - An array of songs. See the song data for more.
  * @returns {Object[]}
  */
-function sortByArtistNameDescending(songs) {}
+function sortByArtistNameDescending(songs) {
+  const artistNameSort = songs.sort((a, b) => {
+    const lowerArtist1 = a.artist.toLowerCase();
+    const lowerArtist2 = b.artist.toLowerCase();
+    if(lowerArtist1 > lowerArtist2){
+      return -1;
+    }
+    else if(lowerArtist1 < lowerArtist2){
+      return 1;
+    }
+    else{
+      return 0;
+    }
+  });
+  return artistNameSort;
+}
 
 /**
  * Reorders the array so that the song objects are organized by their song title. The title that comes first in the alphabet should come first.
@@ -33,7 +61,23 @@ function sortByArtistNameDescending(songs) {}
  * @param {Object[]} songs - An array of songs. See the song data for more.
  * @returns {Object[]}
  */
-function sortBySongTitleAscending(songs) {}
+function sortBySongTitleAscending(songs) {
+  const songsAscending = songs.sort((a,b) => {
+    const songTitle1 = a.title.toLowerCase();
+    const songTitle2 = b.title.toLowerCase();
+
+    if(songTitle1 > songTitle2){
+      return 1;
+    }
+    else if(songTitle1 < songTitle2){
+      return -1;
+    }
+    else{
+      return 0;
+    }
+  });
+  return songsAscending;
+}
 
 module.exports = {
   sortByRuntimeAscending,
