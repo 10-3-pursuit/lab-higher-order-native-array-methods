@@ -14,9 +14,7 @@ const exampleSongData = require("../data/songs");
  * @returns {Object[]}
  */
 function sortByRuntimeAscending(songs) {
-  const filteredRuntime = songs.filter((song) => song.runtimeInSeconds)
-  const sortedRuntime= filteredRuntime.sort((a, b)=> a.runtimeInSeconds - b.runtimeInSeconds)
-  return sortedRuntime
+  return songs.sort((a, b)=> a.runtimeInSeconds - b.runtimeInSeconds)
 }
 
 /**
@@ -28,19 +26,16 @@ function sortByRuntimeAscending(songs) {
  * @returns {Object[]}
  */
 function sortByArtistNameDescending(songs) {
-  const filterByArtist = songs.filter((song) => song.artist)
-  filterByArtist.sort((a, b) => {
-    const artistA = a.artist.toLowerCase()
-    const artistB = b.artist.toLowerCase()
-    if(artistA < artistB){
+  const sortedArtists = songs.sort((a, b) => {
+    if(a.artist.toLowerCase() < b.artist.toLowerCase()){
       return 1
     } 
-    if(artistA > artistB){
+    if(a.artist.toLowerCase() > b.artist.toLowerCase()){
       return -1
     }
     return 0
   })
-  return filterByArtist
+  return sortedArtists
 }
 
 /**
@@ -52,19 +47,16 @@ function sortByArtistNameDescending(songs) {
  * @returns {Object[]}
  */
 function sortBySongTitleAscending(songs) {
-  const filterByTitle = songs.filter((song) => song.title)
-  filterByTitle.sort((a, b) => {
-    const titleA = a.title.toLowerCase()
-    const titleB = b.title.toLowerCase()
-    if(titleA < titleB){
+  const sortedTitles = songs.sort((a, b) => {
+    if(a.title.toLowerCase() < b.title.toLowerCase()){
       return -1
     }
-    if(titleA > titleB){
+    if(a.title.toLowerCase() > b.title.toLowerCase()){
       return 1
     }
     return 0
   })
-  return filterByTitle
+  return sortedTitles
 }
 
 module.exports = {
