@@ -8,13 +8,22 @@
 const exampleSongData = require("../data/songs");
 // Do not change the line above.
 
+// SYNTAX: 
+
+// arrayName.sort(function(a, b) {
+  // Compare a and b and return a negative, zero, or positive value
+// });
+
+
 /**
  * Reorders the array so that the song objects are organized by their runtime. The shortest song should come first.
  * @param {Object[]} songs - An array of songs. See the song data for more.
  * @returns {Object[]}
  */
-function sortByRuntimeAscending(songs) {}
-
+function sortByRuntimeAscending(songs) {
+  songs.sort(function(a, b) {
+  
+}
 /**
  * Reorders the array so that the song objects are organized by their artist name. The artist that comes last in the alphabet should come first.
  *
@@ -23,7 +32,11 @@ function sortByRuntimeAscending(songs) {}
  * @param {Object[]} songs - An array of songs. See the song data for more.
  * @returns {Object[]}
  */
-function sortByArtistNameDescending(songs) {}
+function sortByArtistNameDescending(songs) {
+  songs.sort(function(a, b) {
+    return a - b
+  })
+}
 
 /**
  * Reorders the array so that the song objects are organized by their song title. The title that comes first in the alphabet should come first.
@@ -33,7 +46,11 @@ function sortByArtistNameDescending(songs) {}
  * @param {Object[]} songs - An array of songs. See the song data for more.
  * @returns {Object[]}
  */
-function sortBySongTitleAscending(songs) {}
+function sortBySongTitleAscending(songs) {
+  songs.sort(function(a, b) {
+    return a - b
+  })
+}
 
 module.exports = {
   sortByRuntimeAscending,

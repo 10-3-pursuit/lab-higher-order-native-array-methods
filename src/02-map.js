@@ -8,12 +8,28 @@
 const exampleSongData = require("../data/songs");
 // Do not change the line above.
 
+// SYNTAX: 
+// const newArray = originalArray.map(function(item) {
+//   Do something with item and return a new value
+//  });
+
+// Higher Order Functions SYNTAX: 
+// Usage of the higher-order function
+// higherOrderFunction(function(parameter) {
+//   // This is the callback function
+//   // It can take arguments and perform some action
+//   // ...
+// });
 /**
  * Returns an array of all of the song titles.
  * @param {Object[]} songs - An array of songs. See the song data for more.
  * @returns {string[]} An array of strings, all of which are song titles.
  */
-function getSongTitles(songs) {}
+function getSongTitles(songs) {
+  return songs.map(function(song) {
+    return song.title
+  });
+}
 
 /**
  * Returns an array of all of the song titles with the artist.
@@ -24,7 +40,11 @@ function getSongTitles(songs) {}
  *  getSongDetails(songs);
  *  //> [ "Berlin Tsukin by Taiyo Ky", "Up by Sebastian Kamae", ... ]
  */
-function getSongDetails(songs) {}
+function getSongDetails(songs) {
+    return songAndArtist = songs.map(function(song) {
+      return `${song.title} by ${song.artist}`
+    });
+}
 
 /**
  * Returns an array of objects, where each object has a key that is the song title and has a value that is the song artist.
@@ -35,7 +55,18 @@ function getSongDetails(songs) {}
  *  getTitleAndArtist(songs);
  *  //> [ { "Berlin Tsukin": "Taiyo Ky" }, { Up: "Sebastian Kamae" }, ... ]
  */
-function getTitleAndArtist(songs) {}
+
+// TASK: 
+// Create an object & create an array 
+function getTitleAndArtist(songs) {
+  return songs.map((song) => {
+   let songDeet = {} 
+   songDeet[song.title] = song.artist 
+   return songDeet
+  });
+}
+
+// NOTE: Review how to access objects in an array! 
 
 module.exports = {
   getSongTitles,
