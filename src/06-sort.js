@@ -21,10 +21,14 @@ const exampleSongData = require("../data/songs");
  * @returns {Object[]}
  */
 function sortByRuntimeAscending(songs) {
-  songs.sort(function(a, b){
-  return b.runtimeInSeconds - a.runtimeInSeconds
- });
-
+  return songs.sort((a, b) => {
+    if (a.runtimeInSeconds < b.runtimeInSeconds) {
+      return -1 
+    } else if (a.runtimeInSeconds > b.runtimeInSeconds) {
+      return 1 
+    }
+    return 0
+  })
 }
 /**
  * Reorders the array so that the song objects are organized by their artist name. The artist that comes last in the alphabet should come first.
@@ -35,10 +39,15 @@ function sortByRuntimeAscending(songs) {
  * @returns {Object[]}
  */
 function sortByArtistNameDescending(songs) {
-//   songs.sort(function(a, b) {
-//     return b.runtimeInSeconds - a.runtimeInSeconds
-//   })
-// }
+  return songs.sort((a, b) => {
+    if (a.artist.toUpperCase() > b.artist.toUpperCase()) {
+      return -1
+    } if (a.artist.toUpperCase() < b.artist.toUpperCase()) {
+    return 1
+    }
+    return 0;
+  });
+  }
 
 /**
  * Reorders the array so that the song objects are organized by their song title. The title that comes first in the alphabet should come first.
@@ -48,30 +57,18 @@ function sortByArtistNameDescending(songs) {
  * @param {Object[]} songs - An array of songs. See the song data for more.
  * @returns {Object[]}
  */
-// function sortBySongTitleAscending(songs) {
-//   songs.sort((a, b) => {
-//     const songA = a.song.toUpperCase();
-//     const songB = b.song.toUpperCase();
-//     if (songA < songB) {
-//       return -1;
-//     }
-//     if
-//   }
-// }
+function sortBySongTitleAscending(songs) {
+  return songs.sort((a, b) => {
+    if (a.title.toLowerCase() < b.title.toLowerCase()) {
+      return -1 
+    } else if (a.title.toLowerCase() > b.title.toLowerCase()) {
+      return 1 
+    }
+    return 0
+  });
+}
 
-// items.sort((a, b) => {
-//   const nameA = a.name.toUpperCase(); // ignore upper and lowercase
-//   const nameB = b.name.toUpperCase(); // ignore upper and lowercase
-//   if (nameA < nameB) {
-//     return -1;
-//   }
-//   if (nameA > nameB) {
-//     return 1;
-//   }
 
-//   // names must be equal
-//   return 0;
-// });
 
 module.exports = {
   sortByRuntimeAscending,
