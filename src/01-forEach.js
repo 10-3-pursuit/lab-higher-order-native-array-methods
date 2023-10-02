@@ -12,7 +12,11 @@ const exampleSongData = require("../data/songs");
  * Logs out all of the song titles.
  * @param {Object[]} songs - An array of songs. See the song data for more.
  */
-function printAllSongTitles(songs) {}
+function printAllSongTitles(songs) {
+  for (let element of songs) {
+    console.log(element.title);
+  }
+}
 
 /**
  * Logs out the song title and song artist.
